@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Dimensions, Alert, Image } from 'react-native';
-import { useSelector } from 'react-redux'; // Import the Redux hook
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Dimensions, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 // Get screen dimensions
@@ -11,21 +10,34 @@ export default function SignInScreen() {
   const [password, setPassword] = useState('');
   const navigation = useNavigation();
 
-
+  // Predefined credentials for authentication
+  const adminEmail = 'admin@gmail.com';
+  const adminPassword = 'admin';
 
   const handleSignIn = () => {
-   navigation.navigate('HomeScreen')
+    // Check if the entered email and password match the predefined ones
+    // if (email === adminEmail && password === adminPassword) {
+      // Navigate to HomeScreen if credentials are correct
+      navigation.navigate('HomeScreen');
+    // } else {
+    //   // Show an alert if credentials are incorrect
+    //   Alert.alert('Authentication Failed', 'Incorrect email or password.', [
+    //     { text: 'OK' }
+    //   ]);
+    // }
   };
 
   const handleRegister = () => {
-    navigation.navigate('UserRegistration');
+    // navigation.navigate('UserRegistration');
   };
 
   return (
     <View style={styles.container}>
-      
+      {/* Optional Logo Image */}
+      {/* <Image source={{ uri: 'your_logo_url_here' }} style={styles.logo} /> */}
+
       <Text style={styles.title}>Sign In</Text>
-      
+
       <TextInput
         style={styles.input}
         placeholder="Email"
@@ -34,7 +46,7 @@ export default function SignInScreen() {
         value={email}
         onChangeText={setEmail}
       />
-      
+
       <TextInput
         style={styles.input}
         placeholder="Password"
@@ -43,7 +55,7 @@ export default function SignInScreen() {
         value={password}
         onChangeText={setPassword}
       />
-      
+
       <TouchableOpacity style={styles.button} onPress={handleSignIn}>
         <Text style={styles.buttonText}>Sign In</Text>
       </TouchableOpacity>

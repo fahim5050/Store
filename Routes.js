@@ -9,6 +9,9 @@ import HomeScreen from "./src/Screen/HomeScreen/HomeScreen.jsx";
 import ProductDetail from "./Components/ProductDetail/ProductDetail.jsx";
 import Notification from "./src/Screen/Notification/Notification.jsx";
 import CartScreen from "./src/Screen/CartScreen/CartScreen.jsx";
+import ProfileScreen from "./src/Screen/ProfileScreen/ProfileScreen.jsx";
+import EditProfileScreen from "./src/Screen/EditProfileScreen/EditProfileScreen.jsx";
+import CheckoutScreen from "./src/Screen/CheckoutScreen/CheckoutScreen.jsx";
 
 const Stack = createStackNavigator();
 
@@ -25,6 +28,9 @@ export default function Routes() {
         <Stack.Screen name="UserRegistration" component={UserRegistration} />
         <Stack.Screen name="Notifications" component={Notification} />
         <Stack.Screen name="Cart" component={CartScreen} />
+        <Stack.Screen name="Profile" component={ProfileScreen} />
+        <Stack.Screen name="Editprofile" component={EditProfileScreen} />
+        <Stack.Screen name="Checkout" component={CheckoutScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

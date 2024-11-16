@@ -1,5 +1,7 @@
-import { StyleSheet, Text, View, FlatList } from 'react-native';
 import React from 'react';
+import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import * as Icon from 'react-native-feather';
 
 const notifications = [
   { id: '1', title: 'New Appointment', description: 'You have a new appointment at 10:00 AM.' },
@@ -9,6 +11,8 @@ const notifications = [
 ];
 
 const Notification = () => {
+  const navigation = useNavigation();
+
   const renderNotification = ({ item }) => (
     <View style={styles.notificationCard}>
       <Text style={styles.notificationTitle}>{item.title}</Text>
@@ -18,7 +22,17 @@ const Notification = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Notifications</Text>
+      {/* Header with Back button */}
+      <View style={styles.headerContainer}>
+        <TouchableOpacity onPress={() => navigation.goBack()} style={styles.arrowContainer}>
+          <Icon.ArrowLeft stroke="white" width={20} height={20} />
+        </TouchableOpacity>
+        <View style={styles.headerWrapper}>
+          <Text style={styles.header}>Notifications</Text>
+        </View>
+      </View>
+
+      {/* Notifications list */}
       <FlatList
         data={notifications}
         keyExtractor={(item) => item.id}
@@ -37,12 +51,22 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#f9f9f9',
     paddingHorizontal: 20,
-    paddingTop: 40,
+    paddingTop: 10, // Adjust padding to give more space for the header
+  },
+  headerContainer: {
+    flexDirection: 'row', // Align back button and header horizontally
+    alignItems: 'center', // Vertically align the back button and header text
+    justifyContent: 'flex-start', // Align items to the left
+    marginBottom: 20,
+  },
+  headerWrapper: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center', // Center the header text
   },
   header: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 20,
     color: '#333',
   },
   listContainer: {
@@ -68,5 +92,14 @@ const styles = StyleSheet.create({
   notificationDescription: {
     fontSize: 14,
     color: '#666',
+  },
+  
+  // Style for back arrow container
+  arrowContainer: {
+    backgroundColor: '#1976d2', // Blue background for the arrow icon
+    padding: 10,
+    borderRadius: 25, // Circular border radius
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });

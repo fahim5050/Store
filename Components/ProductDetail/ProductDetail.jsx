@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, ScrollView, Image, TouchableOpacity } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../Slices/cartSlice'; // Correct relative path
+import { useNavigation } from '@react-navigation/native';
+import * as Icon from 'react-native-feather';
 
 const ProductDetail = ({ route }) => {
   const { product } = route.params;
   const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
+  const navigation = useNavigation();
 
   // Increment the quantity
   const increment = () => {
@@ -24,16 +27,18 @@ const ProductDetail = ({ route }) => {
 
   const handleAddToCart = () => {
     dispatch(addToCart({ product, quantity }));
-    console.warn('Item added to cart');
+    navigation.navigate('HomeScreen');
   };
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-     
-     
-      
-      {/* Product Name */}
-      <Text style={styles.header}>{product.name}</Text>
+      {/* Back arrow and Product Name container */}
+      <View style={styles.headerContainer}>
+        <TouchableOpacity onPress={() => navigation.goBack()} style={styles.arrowContainer}>
+          <Icon.ArrowLeft stroke="white" width={20} height={20} />
+        </TouchableOpacity>
+        <Text style={styles.header}>{product.name}</Text>
+      </View>
 
       {/* Product Info */}
       <View style={styles.infoSection}>
@@ -85,14 +90,19 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: '#f5f5f5',
     flex: 1,
-    
+  },
+  headerContainer: {
+    flexDirection: 'row',
+    alignItems: 'center', // Align back button and product name vertically
+    marginVertical: 10,
   },
   header: {
     fontSize: 30,
     fontWeight: 'bold',
-    textAlign: 'center',
-    marginVertical: 10,
+    marginLeft: 10, // Add space between the arrow and product name
     color: '#333',
+    marginLeft:25,
+    flex: 1, // This makes the product name take up the remaining space
   },
   image: {
     width: '100%',
@@ -174,5 +184,14 @@ const styles = StyleSheet.create({
   },
   buttonDisabled: {
     backgroundColor: '#bdbdbd',
+  },
+  
+  // Style for back arrow container
+  arrowContainer: {
+    backgroundColor: '#1976d2', // Blue background for the arrow icon
+    padding: 10,
+    borderRadius: 25, // Circular border radius
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
