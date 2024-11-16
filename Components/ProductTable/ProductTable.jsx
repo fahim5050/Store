@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#fff",
     width: "100%",
-    marginTop: -30,
+    marginTop: 25,
   },
   header: {
     fontSize: 24,
