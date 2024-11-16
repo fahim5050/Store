@@ -29,8 +29,8 @@ const Header = ({ notificationCount = 4, cartCount = 3 }) => {
         <TouchableOpacity style={styles.iconWrapper}>
           <Icon.Bell
             stroke="black"
-            width={24}
-            height={24}
+            width={30}
+            height={30}
             onPress={() => navigation.navigate("Notifications")}
           />
           {notificationCount > 0 && (
@@ -43,8 +43,8 @@ const Header = ({ notificationCount = 4, cartCount = 3 }) => {
         <TouchableOpacity style={styles.iconWrapper}>
           <Icon.ShoppingCart
             stroke="black"
-            width={24}
-            height={24}
+            width={30}
+            height={30}
             onPress={() => navigation.navigate("Cart")}
           />
           {cartCount > 0 && (
