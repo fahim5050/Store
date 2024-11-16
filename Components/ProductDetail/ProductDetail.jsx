@@ -29,8 +29,8 @@ const ProductDetail = ({ route }) => {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      {/* Product Image */}
-      <Image source={{ uri: product.image }} style={styles.image} />
+     
+     
       
       {/* Product Name */}
       <Text style={styles.header}>{product.name}</Text>
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: '#f5f5f5',
     flex: 1,
-    marginTop: -150,
+    
   },
   header: {
     fontSize: 30,
