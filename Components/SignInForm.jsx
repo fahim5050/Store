@@ -16,15 +16,15 @@ export default function SignInScreen() {
 
   const handleSignIn = () => {
     // Check if the entered email and password match the predefined ones
-    // if (email === adminEmail && password === adminPassword) {
+    if (email === adminEmail && password === adminPassword) {
       // Navigate to HomeScreen if credentials are correct
       navigation.navigate('HomeScreen');
-    // } else {
-    //   // Show an alert if credentials are incorrect
-    //   Alert.alert('Authentication Failed', 'Incorrect email or password.', [
-    //     { text: 'OK' }
-    //   ]);
-    // }
+    } else {
+      // Show an alert if credentials are incorrect
+      Alert.alert('Authentication Failed', 'Incorrect email or password.', [
+        { text: 'OK' }
+      ]);
+    }
   };
 
   const handleRegister = () => {
