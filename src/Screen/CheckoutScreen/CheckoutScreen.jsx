@@ -54,7 +54,8 @@ const CheckoutScreen = () => {
 
       {/* Custom Checkout Button */}
       <View style={styles.checkoutContainer}>
-        <TouchableOpacity onPress={() => alert(`Order placed for ${customerName}`)} style={styles.checkoutButton}>
+        <TouchableOpacity onPress={() => navigation.navigate('Invoice', { customerName, cartItems, totalPrice })}
+ style={styles.checkoutButton}>
           <Text style={styles.checkoutButtonText}>Complete Checkout</Text>
         </TouchableOpacity>
       </View>

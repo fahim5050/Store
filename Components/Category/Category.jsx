@@ -30,12 +30,7 @@ const styles = StyleSheet.create({
     borderRadius: 10, // Rounded corners
     marginVertical: 15, // Space between sections
   },
-//   title: {
-//     fontSize: 22,
-//     fontWeight: 'bold',
-//     color: '#333',
-//     marginBottom: 10, // Space below the title
-//   },
+
   categoryList: {
     // No need for flexDirection here as FlatList handles horizontal scrolling
     paddingHorizontal: 5, // Optional padding for better spacing

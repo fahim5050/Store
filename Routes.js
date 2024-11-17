@@ -12,6 +12,7 @@ import CartScreen from "./src/Screen/CartScreen/CartScreen.jsx";
 import ProfileScreen from "./src/Screen/ProfileScreen/ProfileScreen.jsx";
 import EditProfileScreen from "./src/Screen/EditProfileScreen/EditProfileScreen.jsx";
 import CheckoutScreen from "./src/Screen/CheckoutScreen/CheckoutScreen.jsx";
+import InvoiceScreen from "./Components/Invoice/Invoice.jsx";
 
 const Stack = createStackNavigator();
 
@@ -31,6 +32,7 @@ export default function Routes() {
         <Stack.Screen name="Profile" component={ProfileScreen} />
         <Stack.Screen name="Editprofile" component={EditProfileScreen} />
         <Stack.Screen name="Checkout" component={CheckoutScreen} />
+        <Stack.Screen name="Invoice" component={InvoiceScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
